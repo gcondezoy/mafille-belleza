@@ -13,6 +13,7 @@ import {
   Instagram,
   Whatsapp,
   Facebook,
+  TikTok,
   ArrowUR,
   Sparkle,
 } from "./Icons";
@@ -49,6 +50,11 @@ const MASOTERAPIA = [
   "Masaje con piedras volcánicas",
   "Drenaje linfático",
   "Masaje facial holístico",
+  "Masaje con rosas",
+  "Masaje con hierbas",
+  "Masaje con aceite",
+  "Masaje con ventosas",
+  "Manipulación, masaje de manos y brazos",
 ];
 
 const GALLERY = [
@@ -682,7 +688,7 @@ function Footer() {
             <Whatsapp className="h-5 w-5" />
           </a>
           <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/mafille.belleza/"
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram"
@@ -691,13 +697,22 @@ function Footer() {
             <Instagram className="h-5 w-5" />
           </a>
           <a
-            href="https://www.facebook.com/"
+            href="https://www.facebook.com/profile.php?id=100064113102067"
             target="_blank"
             rel="noreferrer"
             aria-label="Facebook"
             className="flex h-10 w-10 items-center justify-center rounded-full bg-ink/5 text-ink transition-all duration-300 hover:bg-rosedeep hover:text-ivory"
           >
             <Facebook className="h-5 w-5" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@mafille.belleza"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="TikTok"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-ink/5 text-ink transition-all duration-300 hover:bg-rosedeep hover:text-ivory"
+          >
+            <TikTok className="h-5 w-5" />
           </a>
         </div>
       </div>
