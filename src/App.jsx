@@ -135,7 +135,7 @@ function CTA({ href, children, dark = false, className = "" }) {
       href={href}
       target={href?.startsWith("http") ? "_blank" : undefined}
       rel={href?.startsWith("http") ? "noreferrer" : undefined}
-      className={`group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold tracking-tight transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] ${
+      className={`group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold tracking-tight transition-[transform,background-color,color] duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] ${
         dark
           ? "bg-ink text-ivory hover:bg-mauve"
           : "bg-rosedeep text-ink hover:bg-mauve hover:text-ivory"
@@ -247,17 +247,17 @@ function Hero() {
           <div className="reveal">
             <Eyebrow>Salón de belleza · Centro holístico</Eyebrow>
           </div>
-          <h1 className="reveal mt-6 font-display text-[3.4rem] font-medium leading-[0.95] tracking-tight text-ink sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="reveal reveal-d1 mt-6 font-display text-[3.4rem] font-medium leading-[0.95] tracking-tight text-ink sm:text-7xl lg:text-[5.5rem]">
             Belleza que
             <br />
             <span className="italic text-mauve">también</span> sana.
           </h1>
-          <p className="reveal mt-7 max-w-md text-lg leading-relaxed text-soft">
+          <p className="reveal reveal-d2 mt-7 max-w-md text-lg leading-relaxed text-soft">
             En <strong className="font-semibold text-ink">Mafille Belleza</strong> unimos
             estética y bienestar holístico. Rituales de rostro, manos, mirada y cabello pensados
             para que te veas y te sientas en equilibrio.
           </p>
-          <div className="reveal mt-9 flex flex-wrap items-center gap-4">
+          <div className="reveal reveal-d3 mt-9 flex flex-wrap items-center gap-4">
             <CTA href={WA} dark>
               Reservar por WhatsApp
             </CTA>
@@ -268,14 +268,14 @@ function Hero() {
               Ver servicios
             </a>
           </div>
-          <div className="reveal mt-10 flex items-center gap-3 text-xs text-soft">
+          <div className="reveal reveal-d4 mt-10 flex items-center gap-3 text-xs text-soft">
             <Pin className="h-4 w-4 text-mauve" />
             <span>Los Olivos, Lima — Perú</span>
           </div>
         </div>
 
         {/* Tarjeta visual con doble-bisel + foto */}
-        <div className="reveal lg:col-span-5">
+        <div className="reveal reveal-d2 lg:col-span-5">
           <div className="rounded-[2.2rem] bg-white/50 p-2 ring-1 ring-ink/5 backdrop-blur-sm">
             <div className="relative overflow-hidden rounded-[calc(2.2rem-0.5rem)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
               <img
@@ -399,10 +399,11 @@ function Masoterapia() {
             se adapta a tu cuerpo y a tu momento.
           </p>
           <ul className="mt-8 grid gap-2.5 sm:grid-cols-2">
-            {MASOTERAPIA.map((m) => (
+            {MASOTERAPIA.map((m, i) => (
               <li
                 key={m}
-                className="flex items-center gap-3 rounded-2xl bg-white/60 px-4 py-3 text-sm font-medium text-ink ring-1 ring-ink/8"
+                style={{ transitionDelay: `${i * 45}ms` }}
+                className="reveal flex items-center gap-3 rounded-2xl bg-white/60 px-4 py-3 text-sm font-medium text-ink ring-1 ring-ink/8"
               >
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blush text-mauve">
                   <Stone className="h-4 w-4" />
@@ -448,7 +449,7 @@ function Gallery() {
                 src={img(g.id, 900)}
                 alt={g.t}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-5">
@@ -482,7 +483,7 @@ function Services() {
             return (
               <article
                 key={s.title}
-                className={`reveal group rounded-[2rem] bg-white/60 p-2 ring-1 ring-ink/5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:ring-mauve/25 ${s.span}`}
+                className={`reveal group rounded-[2rem] bg-white/60 p-2 ring-1 ring-ink/5 transition-[transform,box-shadow] duration-[250ms] ease-out hover:-translate-y-1 hover:ring-mauve/25 ${s.span}`}
               >
                 <div className="flex h-full flex-col rounded-[calc(2rem-0.5rem)] bg-ivory p-7 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)] md:p-9">
                   <div className="flex items-center justify-between">
@@ -552,7 +553,7 @@ function Philosophy() {
           {STEPS.map((st) => (
             <div
               key={st.n}
-              className="group rounded-[1.6rem] bg-white/60 p-2 ring-1 ring-ink/5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:ring-mauve/25"
+              className="group rounded-[1.6rem] bg-white/60 p-2 ring-1 ring-ink/5 transition-transform duration-200 ease-out hover:-translate-y-0.5"
             >
               <div className="flex w-full items-start gap-5 rounded-[1.3rem] bg-ivory p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)]">
                 <span className="font-display text-3xl font-semibold text-rosedeep">{st.n}</span>
